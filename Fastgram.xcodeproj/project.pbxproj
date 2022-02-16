@@ -16,7 +16,15 @@
 		5875325327BD2F0200B78AB7 /* FastgramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5875325227BD2F0200B78AB7 /* FastgramTests.swift */; };
 		5875325D27BD2F0200B78AB7 /* FastgramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5875325C27BD2F0200B78AB7 /* FastgramUITests.swift */; };
 		5875325F27BD2F0200B78AB7 /* FastgramUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5875325E27BD2F0200B78AB7 /* FastgramUITestsLaunchTests.swift */; };
-		C1F426860DD3AD23F4DA3D97 /* Pods_Fastgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 333E626CE57D7FB5CAF30F82 /* Pods_Fastgram.framework */; };
+		5875326D27BD32C600B78AB7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5875326C27BD32C600B78AB7 /* User.swift */; };
+		5875326F27BD341300B78AB7 /* FeedMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5875326E27BD341300B78AB7 /* FeedMedia.swift */; };
+		5875327127BD357600B78AB7 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5875327027BD357600B78AB7 /* Feed.swift */; };
+		5875327427BD371700B78AB7 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5875327327BD371700B78AB7 /* FeedViewController.swift */; };
+		5875327527BD3A9800B78AB7 /* Pods_Fastgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 333E626CE57D7FB5CAF30F82 /* Pods_Fastgram.framework */; };
+		5875327A27BD3C1400B78AB7 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5875327927BD3C1400B78AB7 /* UIView+Extension.swift */; };
+		5875327C27BD3C5800B78AB7 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5875327B27BD3C5800B78AB7 /* UIImageView+Extension.swift */; };
+		5875327E27BD3CFF00B78AB7 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5875327D27BD3CFF00B78AB7 /* FeedCell.swift */; };
+		5875328027BD48C500B78AB7 /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5875327F27BD48C500B78AB7 /* FeedImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +60,14 @@
 		5875325827BD2F0200B78AB7 /* FastgramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastgramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5875325C27BD2F0200B78AB7 /* FastgramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastgramUITests.swift; sourceTree = "<group>"; };
 		5875325E27BD2F0200B78AB7 /* FastgramUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastgramUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5875326C27BD32C600B78AB7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5875326E27BD341300B78AB7 /* FeedMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedMedia.swift; sourceTree = "<group>"; };
+		5875327027BD357600B78AB7 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		5875327327BD371700B78AB7 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		5875327927BD3C1400B78AB7 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		5875327B27BD3C5800B78AB7 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		5875327D27BD3CFF00B78AB7 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		5875327F27BD48C500B78AB7 /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
 		F088D2E6C2AA0960E9691450 /* Pods-Fastgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fastgram.debug.xcconfig"; path = "Target Support Files/Pods-Fastgram/Pods-Fastgram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1F426860DD3AD23F4DA3D97 /* Pods_Fastgram.framework in Frameworks */,
+				5875327527BD3A9800B78AB7 /* Pods_Fastgram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,8 +135,11 @@
 				5875323D27BD2EFD00B78AB7 /* SceneDelegate.swift */,
 				5875323F27BD2EFD00B78AB7 /* ViewController.swift */,
 				5875324427BD2F0100B78AB7 /* Assets.xcassets */,
+				5875327827BD3BFC00B78AB7 /* Extension */,
+				5875327227BD36FC00B78AB7 /* Feed */,
 				5875324627BD2F0100B78AB7 /* LaunchScreen.storyboard */,
 				5875324127BD2EFD00B78AB7 /* Main.storyboard */,
+				5875326B27BD32B300B78AB7 /* Model */,
 			);
 			path = Fastgram;
 			sourceTree = "<group>";
@@ -142,13 +161,41 @@
 			path = FastgramUITests;
 			sourceTree = "<group>";
 		};
+		5875326B27BD32B300B78AB7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5875326C27BD32C600B78AB7 /* User.swift */,
+				5875326E27BD341300B78AB7 /* FeedMedia.swift */,
+				5875327027BD357600B78AB7 /* Feed.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5875327227BD36FC00B78AB7 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				5875327327BD371700B78AB7 /* FeedViewController.swift */,
+				5875327D27BD3CFF00B78AB7 /* FeedCell.swift */,
+				5875327F27BD48C500B78AB7 /* FeedImageCell.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		5875327827BD3BFC00B78AB7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				5875327927BD3C1400B78AB7 /* UIView+Extension.swift */,
+				5875327B27BD3C5800B78AB7 /* UIImageView+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		C46417422E3873456417D1E6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				F088D2E6C2AA0960E9691450 /* Pods-Fastgram.debug.xcconfig */,
 				40FF7658E1E6D02376F6E44C /* Pods-Fastgram.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -327,9 +374,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5875328027BD48C500B78AB7 /* FeedImageCell.swift in Sources */,
+				5875326D27BD32C600B78AB7 /* User.swift in Sources */,
+				5875327E27BD3CFF00B78AB7 /* FeedCell.swift in Sources */,
+				5875327127BD357600B78AB7 /* Feed.swift in Sources */,
+				5875327A27BD3C1400B78AB7 /* UIView+Extension.swift in Sources */,
+				5875327C27BD3C5800B78AB7 /* UIImageView+Extension.swift in Sources */,
 				5875324027BD2EFD00B78AB7 /* ViewController.swift in Sources */,
+				5875326F27BD341300B78AB7 /* FeedMedia.swift in Sources */,
 				5875323C27BD2EFD00B78AB7 /* AppDelegate.swift in Sources */,
 				5875323E27BD2EFD00B78AB7 /* SceneDelegate.swift in Sources */,
+				5875327427BD371700B78AB7 /* FeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
