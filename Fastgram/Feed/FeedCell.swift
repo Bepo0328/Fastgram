@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import AVFoundation
 
-class FeedCell: UITableViewCell {
+class FeedCell: UITableViewCell, MoviePlayable {
     @IBOutlet weak private var userPhotoView: UIImageView!
     @IBOutlet weak private var userNameLabel: UILabel!
     @IBOutlet weak private var contentLabel: UILabel!
@@ -84,16 +84,34 @@ extension FeedCell: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     }
 }
 
+extension FeedCell {
+    func resume() {
+        self.collectionView.visibleCells.compactMap({ $0 as? MoviePlayable }).forEach({
+            $0.pause()
+        })
+    }
+    
+    func pause() {
+        self.collectionView.visibleCells.compactMap({ $0 as? MoviePlayable }).forEach({
+            $0.resume()
+        })
+    }
+    
+    func isPlayable(with superView: UIView) -> Bool {
+        let interaction = superView.bounds.intersection(self.frame)
+        return interaction.height > superView.frame.height * 0.5
+    }
+}
+
 extension FeedCell: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let cells = collectionView.visibleCells.compactMap({ $0 as? MoviePlayable })
         
         for cell in cells {
-            let intersection = collectionView.bounds.intersection(cell.frame)
-            if intersection.width > collectionView.frame.width * 0.5 {
+            if cell.isPlayable(with: collectionView) {
                 cell.resume()
             } else {
-                cell.pasue()
+                cell.pause()
             }
         }
     }

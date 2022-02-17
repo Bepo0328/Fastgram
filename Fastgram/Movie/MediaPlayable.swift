@@ -10,7 +10,7 @@ import UIKit
 
 protocol MoviePlayable: UIView {
     func resume()
-    func pasue()
+    func pause()
     
-    func isPlayable(with superview: UIView) -> Bool
+    func isPlayable(with superView: UIView) -> Bool
 }

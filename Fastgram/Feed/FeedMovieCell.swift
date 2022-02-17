@@ -28,11 +28,12 @@ class FeedMovieCell: UICollectionViewCell, MoviePlayable {
         player.play()
     }
     
-    func pasue() {
+    func pause() {
         player.pause()
     }
     
-    func isPlayable(with superview: UIView) -> Bool {
-        true
+    func isPlayable(with superView: UIView) -> Bool {
+        let intersection = superView.bounds.intersection(self.frame)
+        return intersection.width > superView.frame.width * 0.5
     }
 }
