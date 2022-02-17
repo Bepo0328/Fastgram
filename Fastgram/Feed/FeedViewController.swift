@@ -13,7 +13,7 @@ class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.estimatedRowHeight = self.tableView.frame.width + 100
+        self.tableView.estimatedRowHeight = self.tableView.frame.width + 120
     }
 }
 

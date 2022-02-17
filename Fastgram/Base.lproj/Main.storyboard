@@ -115,14 +115,14 @@
                                                                                 <outlet property="imageView" destination="5JM-p3-oU5" id="i8G-cb-WgY"/>
                                                                             </connections>
                                                                         </collectionViewCell>
-                                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="FeedMovieCell" id="mH1-TY-uSc" customClass="FeedMovieCell" customModule="Fastcampus" customModuleProvider="target">
+                                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="FeedMovieCell" id="mH1-TY-uSc" customClass="FeedMovieCell" customModule="Fastgram" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="143" width="128" height="128"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YSa-HJ-P8q">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <subviews>
-                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayr-a8-1B4" customClass="MoviePlayerView" customModule="Fastcampus" customModuleProvider="target">
+                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayr-a8-1B4" customClass="MoviePlayerView" customModule="Fastgram" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                     </view>
@@ -135,7 +135,7 @@
                                                                                 </constraints>
                                                                             </collectionViewCellContentView>
                                                                             <connections>
-                                                                                <outlet property="playerView" destination="ayr-a8-1B4" id="Kdv-Rs-Rhc"/>
+                                                                                <outlet property="playerView" destination="ayr-a8-1B4" id="whb-i4-Qaq"/>
                                                                             </connections>
                                                                         </collectionViewCell>
                                                                     </cells>

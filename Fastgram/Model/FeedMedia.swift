@@ -9,6 +9,7 @@ import Foundation
 
 enum FeedMediaType {
     case photo
+    case movie
 }
 
 struct FeedMeida {
@@ -41,7 +42,11 @@ extension FeedMeida {
     }
     
     static func createRandom() -> FeedMeida {
-        let url = images.randomElement()!
-        return FeedMeida(type: .photo, url: url)
+        let movies = ["https://lachy.id.au/dev/markup/examples/video/bus.mp4",
+                      "https://file-examples-com.github.io/uploads/2018/04/file_example_MOV_480_700kB.mov"]
+        let type = [0, 1, 2].randomElement() == 0 ? FeedMediaType.movie : FeedMediaType.photo
+        let url = type == .movie ? movies.randomElement()! : images.randomElement()!
+
+        return FeedMeida(type: type, url: url)
     }
 }
