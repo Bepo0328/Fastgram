@@ -47,6 +47,9 @@
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLK-fd-rzr">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                                            <connections>
+                                                                <action selector="selectUser" destination="NzN-7H-LDs" eventType="touchUpInside" id="YxY-tb-VRq"/>
+                                                            </connections>
                                                         </button>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QBD-y5-sSe">
                                                             <rect key="frame" x="10" y="10" width="30" height="30"/>
@@ -153,7 +156,7 @@
                                                                 <constraint firstAttribute="trailing" secondItem="HqQ-vy-jZo" secondAttribute="trailing" id="wqn-gj-9Et"/>
                                                             </constraints>
                                                         </view>
-                                                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="sIt-kf-vNT">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="sIt-kf-vNT">
                                                             <rect key="frame" x="107" y="108.5" width="200" height="197.5"/>
                                                             <color key="tintColor" systemColor="systemPinkColor"/>
                                                             <constraints>
@@ -190,6 +193,9 @@
                                                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                                             <state key="normal" image="heart" catalog="system"/>
                                                             <state key="selected" image="heart.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="toggleLike" destination="NzN-7H-LDs" eventType="touchUpInside" id="k9b-lE-Cb4"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -283,11 +289,28 @@
                     <navigationItem key="navigationItem" title="Fastgram" id="Mbn-EJ-Mlw" customClass="FeedViewCon"/>
                     <connections>
                         <outlet property="tableView" destination="TQQ-4k-MZC" id="lSS-S0-1iQ"/>
+                        <segue destination="bZ1-Ng-NDz" kind="show" identifier="User" id="DC6-Aq-2tz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="124.6376811594203" y="77.678571428571431"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pbn-L7-hMo">
+            <objects>
+                <viewController id="bZ1-Ng-NDz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k81-9X-TzQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="CGo-D2-D8R"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YGt-M2-3eW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6QP-p1-qCO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="901" y="78"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hXN-wC-e1I">

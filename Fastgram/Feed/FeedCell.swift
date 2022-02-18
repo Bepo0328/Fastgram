@@ -9,6 +9,12 @@ import Foundation
 import UIKit
 import AVFoundation
 
+protocol FeedCellDelegate: AnyObject {
+    func feedCell(_ cell: FeedCell, toggleLike feed: Feed)
+    func feedCell(_ cell: FeedCell, selectUser user: User)
+    func feedCellShouldExpand(_ cell: FeedCell)
+}
+
 class FeedCell: UITableViewCell, MoviePlayable {
     @IBOutlet weak private var userPhotoView: UIImageView!
     @IBOutlet weak private var userNameLabel: UILabel!
@@ -20,6 +26,7 @@ class FeedCell: UITableViewCell, MoviePlayable {
     @IBOutlet weak private var pageControl: UIPageControl!
     @IBOutlet weak private var collectionView: UICollectionView!
     
+    weak var delegate: FeedCellDelegate?
     var feed: Feed! {
         didSet {
             guard let feed = feed, feed != oldValue else { return }
@@ -32,18 +39,74 @@ class FeedCell: UITableViewCell, MoviePlayable {
             collectionView.reloadData()
             pageControl.currentPage = 0
             
-            contentLabel.text = feed.content
             userNameLabel.text = feed.user.name
             
             pageControl.numberOfPages = feed.medias.count
             
             updateLike(feed)
+            
+            likeView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+            likeView.alpha = 0
+            
+            let content = "\(feed.user.name) \(feed.content)"
+            let more = "... 더보기"
+            let text = NSMutableAttributedString(string: content)
+            
+            text.addAttribute(.font, value: UIFont.systemFont(ofSize: 13), range: NSRange(location: 0, length: content.count))
+            text.addAttribute(.font, value: UIFont.systemFont(ofSize: 13, weight: .bold), range: NSRange(location: 0, length: feed.user.name.count))
+            
+            if content.hasSuffix(more) {
+                text.addAttribute(.foregroundColor, value: UIColor.lightGray, range: NSRange(location: content.count - more.count, length: more.count))
+            }
+            
+            contentLabel.attributedText = text
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.userPhotoView.makeRound()
+        self.addLikeGesture()
+        self.contentLabel.isUserInteractionEnabled = true
+        
+        let textTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectText))
+        self.contentLabel.addGestureRecognizer(textTapGestureRecognizer)
+    }
+    
+    func addLikeGesture() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(animateLike))
+        tapGestureRecognizer.numberOfTapsRequired = 2
+        self.container.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func selectText() {
+        delegate?.feedCellShouldExpand(self)
+    }
+    
+    @objc func animateLike() {
+        if feed.liked == false {
+            delegate?.feedCell(self, toggleLike: feed)
+        }
+        
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+            self.likeView.alpha = 1
+            self.likeView.transform = .identity
+            self.likeButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.2, delay: 0.5, options: .curveEaseInOut, animations: {
+                self.likeView.alpha = 0
+                self.likeView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+                self.likeButton.transform = .identity
+            }, completion: nil)
+        })
+    }
+    
+    @IBAction func selectUser() {
+        delegate?.feedCell(self, selectUser: feed.user)
+    }
+    
+    @IBAction func toggleLike() {
+        delegate?.feedCell(self, toggleLike: feed)
     }
     
     func updateLike(_ feed: Feed) {

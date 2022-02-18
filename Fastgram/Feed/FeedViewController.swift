@@ -14,6 +14,7 @@ class FeedViewController: UIViewController {
     private var feeds: [Feed] = []
     private var limit = 10
     private var isLoadingContent = false
+    private var expandedContent: [IndexPath: Bool] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,7 @@ extension FeedViewController {
             guard let weakSelf = self else { return }
             
             if reset {
+                weakSelf.expandedContent = [:]
                 weakSelf.feeds = feeds
             } else {
                 weakSelf.feeds.append(contentsOf: feeds)
@@ -70,6 +72,7 @@ extension FeedViewController {
     }
 }
 
+// MARK: - 영상관련
 extension FeedViewController {
     private func playMovieIfNeeded() {
         var alreadyPlaying = false
@@ -93,9 +96,13 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedCell
-        let feed = feeds[indexPath.row]
+        var feed = feeds[indexPath.row]
+        
+        let expanded = expandedContent[indexPath, default: false]
+        feed.content = (expanded || feed.content.count < 40) ? feed.content : feed.content.prefix(40) + "... 더보기"
         
         cell.feed = feed
+        cell.delegate = self
         
         return cell
     }
@@ -112,5 +119,33 @@ extension FeedViewController: UIScrollViewDelegate {
         }
         
         playMovieIfNeeded()
+    }
+}
+
+// MARK: - FeedCellDelegate
+extension FeedViewController: FeedCellDelegate {
+    func feedCell(_ cell: FeedCell, toggleLike feed: Feed) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        var feed = feeds[indexPath.row]
+        let liked = feed.liked == false
+        let count = feed.likeCount + (liked ? 1 : -1)
+        
+        feed.liked = liked
+        feed.likeCount = count
+        
+        feeds[indexPath.row] = feed
+        
+        cell.feed = feed
+        cell.updateLike(feed)
+    }
+    
+    func feedCell(_ cell: FeedCell, selectUser user: User) {
+        performSegue(withIdentifier: "User", sender: user)
+    }
+    
+    func feedCellShouldExpand(_ cell: FeedCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        self.expandedContent[indexPath] = true
+        self.tableView.reloadRows(at: [indexPath], with: .none)
     }
 }
