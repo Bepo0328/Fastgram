@@ -28,6 +28,7 @@
 		5875328327BE836200B78AB7 /* MoviePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5875328227BE836200B78AB7 /* MoviePlayerView.swift */; };
 		5875328527BE842E00B78AB7 /* MediaPlayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5875328427BE842E00B78AB7 /* MediaPlayable.swift */; };
 		5875328727BE860900B78AB7 /* FeedMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5875328627BE860900B78AB7 /* FeedMovieCell.swift */; };
+		58EDBBE327BFDDED007E562D /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EDBBE227BFDDED007E562D /* UserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		5875328227BE836200B78AB7 /* MoviePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePlayerView.swift; sourceTree = "<group>"; };
 		5875328427BE842E00B78AB7 /* MediaPlayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayable.swift; sourceTree = "<group>"; };
 		5875328627BE860900B78AB7 /* FeedMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedMovieCell.swift; sourceTree = "<group>"; };
+		58EDBBE227BFDDED007E562D /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		F088D2E6C2AA0960E9691450 /* Pods-Fastgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fastgram.debug.xcconfig"; path = "Target Support Files/Pods-Fastgram/Pods-Fastgram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,6 +149,7 @@
 				5875324127BD2EFD00B78AB7 /* Main.storyboard */,
 				5875326B27BD32B300B78AB7 /* Model */,
 				5875328127BE834D00B78AB7 /* Movie */,
+				58EDBBE127BFDDDE007E562D /* User */,
 			);
 			path = Fastgram;
 			sourceTree = "<group>";
@@ -205,6 +208,14 @@
 				5875328427BE842E00B78AB7 /* MediaPlayable.swift */,
 			);
 			path = Movie;
+			sourceTree = "<group>";
+		};
+		58EDBBE127BFDDDE007E562D /* User */ = {
+			isa = PBXGroup;
+			children = (
+				58EDBBE227BFDDED007E562D /* UserViewController.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		C46417422E3873456417D1E6 /* Pods */ = {
@@ -392,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5875328027BD48C500B78AB7 /* FeedImageCell.swift in Sources */,
+				58EDBBE327BFDDED007E562D /* UserViewController.swift in Sources */,
 				5875328527BE842E00B78AB7 /* MediaPlayable.swift in Sources */,
 				5875326D27BD32C600B78AB7 /* User.swift in Sources */,
 				5875327E27BD3CFF00B78AB7 /* FeedCell.swift in Sources */,

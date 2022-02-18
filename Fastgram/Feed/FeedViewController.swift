@@ -22,6 +22,12 @@ class FeedViewController: UIViewController {
         self.initialize()
         self.setupRefreshControl()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let user = sender as? User, let controller = segue.destination as? UserViewController {
+            controller.user = user
+        }
+    }
 }
 
 extension FeedViewController {

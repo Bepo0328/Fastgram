@@ -35,7 +35,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedCell" id="NzN-7H-LDs" customClass="FeedCell" customModule="Fastcampus" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedCell" id="NzN-7H-LDs" customClass="FeedCell" customModule="Fastgram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="544.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NzN-7H-LDs" id="AWk-UO-oda">
@@ -95,7 +95,7 @@
                                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                     </collectionViewFlowLayout>
                                                                     <cells>
-                                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FeedImageCell" id="WmR-Ke-Bgt" customClass="FeedImageCell" customModule="Fastcampus" customModuleProvider="target">
+                                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FeedImageCell" id="WmR-Ke-Bgt" customClass="FeedImageCell" customModule="Fastgram" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IPu-VC-Eb4">
@@ -296,21 +296,97 @@
             </objects>
             <point key="canvasLocation" x="124.6376811594203" y="77.678571428571431"/>
         </scene>
-        <!--View Controller-->
+        <!--User View Controller-->
         <scene sceneID="pbn-L7-hMo">
             <objects>
-                <viewController id="bZ1-Ng-NDz" sceneMemberID="viewController">
+                <viewController id="bZ1-Ng-NDz" customClass="UserViewController" customModule="Fastgram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k81-9X-TzQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cM3-4g-KOO">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="CFD-5s-Ki9">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="50" height="210"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserFeedCell" id="gNE-Ij-EzL" userLabel="User Feed Cell" customClass="UserFeedCell" customModule="Fastgram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="210" width="181" height="161"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ozf-Z5-V8q">
+                                            <rect key="frame" x="0.0" y="0.0" width="181" height="161"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R0Z-DS-Hgf" userLabel="Photo View">
+                                                    <rect key="frame" x="0.0" y="0.0" width="181" height="161"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="R0Z-DS-Hgf" secondAttribute="bottom" id="0He-vk-fAI"/>
+                                                <constraint firstItem="R0Z-DS-Hgf" firstAttribute="top" secondItem="Ozf-Z5-V8q" secondAttribute="top" id="Lsv-ns-yyq"/>
+                                                <constraint firstAttribute="trailing" secondItem="R0Z-DS-Hgf" secondAttribute="trailing" id="ebm-m4-hYt"/>
+                                                <constraint firstItem="R0Z-DS-Hgf" firstAttribute="leading" secondItem="Ozf-Z5-V8q" secondAttribute="leading" id="zSb-zq-eCH"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="181" height="161"/>
+                                        <connections>
+                                            <outlet property="photoView" destination="R0Z-DS-Hgf" id="dOK-15-apu"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="UserProfileCell" id="qcI-3t-R4N" userLabel="User Profile Cell" customClass="UserProfileCell" customModule="Fastgram" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="210"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FMu-hK-Y0S" userLabel="Photo View">
+                                            <rect key="frame" x="157" y="35" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="69e-a9-uE3"/>
+                                                <constraint firstAttribute="width" constant="100" id="DOO-1W-Elo"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용자 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARz-fx-LcK" userLabel="Name Label">
+                                            <rect key="frame" x="138.5" y="154" width="137" height="36"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="FMu-hK-Y0S" firstAttribute="centerY" secondItem="qcI-3t-R4N" secondAttribute="centerY" constant="-20" id="TVx-RT-KmQ"/>
+                                        <constraint firstItem="FMu-hK-Y0S" firstAttribute="centerX" secondItem="qcI-3t-R4N" secondAttribute="centerX" id="rrh-3w-DTk"/>
+                                        <constraint firstItem="ARz-fx-LcK" firstAttribute="centerX" secondItem="qcI-3t-R4N" secondAttribute="centerX" id="vfz-eu-5Tu"/>
+                                        <constraint firstAttribute="bottom" secondItem="ARz-fx-LcK" secondAttribute="bottom" constant="20" id="ycV-5z-5hD"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="nameLabel" destination="ARz-fx-LcK" id="dFu-Vw-BzK"/>
+                                        <outlet property="photoView" destination="FMu-hK-Y0S" id="NMU-D2-a3C"/>
+                                    </connections>
+                                </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="bZ1-Ng-NDz" id="gIg-IL-f2W"/>
+                                    <outlet property="delegate" destination="bZ1-Ng-NDz" id="5yX-P1-BiF"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="CGo-D2-D8R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="cM3-4g-KOO" secondAttribute="bottom" id="EG4-JF-keV"/>
+                            <constraint firstItem="cM3-4g-KOO" firstAttribute="leading" secondItem="CGo-D2-D8R" secondAttribute="leading" id="RP8-Kr-biM"/>
+                            <constraint firstItem="cM3-4g-KOO" firstAttribute="top" secondItem="CGo-D2-D8R" secondAttribute="top" id="YS0-RE-tTZ"/>
+                            <constraint firstItem="CGo-D2-D8R" firstAttribute="trailing" secondItem="cM3-4g-KOO" secondAttribute="trailing" id="b2R-Ro-AgL"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YGt-M2-3eW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6QP-p1-qCO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901" y="78"/>
+            <point key="canvasLocation" x="900.00000000000011" y="77.678571428571431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hXN-wC-e1I">
